@@ -11,7 +11,7 @@ function buscarImagenesNasa(query) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            const resultados = data.collection.items;
+            const { items: resultados } = data.collection; // Desestructuración aquí
             mostrarResultados(resultados);
         })
         .catch(error => {
@@ -24,8 +24,8 @@ function mostrarResultados(resultados) {
     contenedor.innerHTML = ''; 
 
     resultados.forEach(item => {
-        const data = item.data[0];
-        const imageUrl = item.links ? item.links[0].href : '';
+        const { data: [data], links } = item; // Desestructuración del item
+        const imageUrl = links ? links[0].href : ''; // No es necesario desestructurar aquí
 
         const col = document.createElement('div');
         col.classList.add('col-md-4', 'd-flex', 'justify-content-end', 'mb-3');
@@ -52,7 +52,7 @@ function mostrarResultados(resultados) {
 
         const description = document.createElement('p');
         description.classList.add('card-text');
-        description.textContent = data.description || 'No hay descripción disponible';
+        description.textContent = data.description;
         cardBody.appendChild(description);
 
         const date = document.createElement('p');
