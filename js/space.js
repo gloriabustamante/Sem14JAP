@@ -28,7 +28,7 @@ function mostrarResultados(resultados) {
         const imageUrl = item.links ? item.links[0].href : '';
 
         const col = document.createElement('div');
-        col.classList.add('col-md-4', 'd-flex', 'justify-content-star', 'mb-3');
+        col.classList.add('col-md-4', 'd-flex', 'justify-content-start', 'mb-3');
         
         const card = document.createElement('div');
         card.classList.add('card', 'mb-3');
