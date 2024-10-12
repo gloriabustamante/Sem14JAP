@@ -28,7 +28,7 @@ function mostrarResultados(resultados) {
         const imageUrl = item.links ? item.links[0].href : '';
 
         const col = document.createElement('div');
-        col.classList.add('col-md-4', 'd-flex', 'justify-content-start', 'mb-3');
+        col.classList.add('col-md-4', 'd-flex', 'justify-content-end', 'mb-3');
         
         const card = document.createElement('div');
         card.classList.add('card', 'mb-3');
@@ -45,7 +45,7 @@ function mostrarResultados(resultados) {
         const cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
 
-        const title = document.createElement('h5');
+        const title = document.createElement('h2');
         title.classList.add('card-title');
         title.textContent = data.title;
         cardBody.appendChild(title);
